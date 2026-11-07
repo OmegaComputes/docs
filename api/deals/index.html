@@ -371,17 +371,18 @@
   
   
   
-    <li class="md-tabs__item">
-      <a href="../../support/" class="md-tabs__link">
-        
-  
-  
     
+    
+      <li class="md-tabs__item">
+        <a href="../../project/" class="md-tabs__link">
+          
   
-  Support
+  
+  Project
 
-      </a>
-    </li>
+        </a>
+      </li>
+    
   
 
       
@@ -1423,6 +1424,198 @@
   
   
   
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open source plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License recommendation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
       <a href="../../support/" class="md-nav__link">
         
@@ -1440,6 +1633,14 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1547,7 +1748,7 @@
 </tbody>
 </table>
 <h2 id="fee-quote">Fee quote<a class="headerlink" href="#fee-quote" title="Permanent link">&para;</a></h2>
-<p>Final pricing is not yet published. Development quotes are not a published pricing commitment. The fee-quote route is <code>GET /api/v1/fees/quote</code>:</p>
+<p>Draft fee schedule <strong>2026-10-24.1</strong> is implemented, not final, and subject to change. Total contract value and term select the rate; it applies to cycle gross. Renewals use 75% of the rate, then the $5 minimum fee applies. The quote function rejects cycles below $25. Final pricing is not yet published. Development quotes are not a published pricing commitment. The fee-quote route is <code>GET /api/v1/fees/quote</code>:</p>
 <div class="highlight"><pre><span></span><code>curl<span class="w"> </span><span class="s2">"https://api.example/api/v1/fees/quote?contract_value_usd=5000&amp;term_days=60"</span>
 </code></pre></div>
 <p>Parameters: <code>contract_value_usd</code> (required), <code>term_days</code> or <code>term_months</code> (one required), <code>renewal</code> (<code>true</code>/<code>false</code>), <code>cycle_amount_usd</code>. The response includes <code>fee_usd</code> and <code>seller_net_usd</code>. See <a href="../../guides/paying/">Paying</a>.</p>
