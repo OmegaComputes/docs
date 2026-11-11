@@ -1656,15 +1656,15 @@
 
 
 <h1 id="quickstart">Quickstart<a class="headerlink" href="#quickstart" title="Permanent link">&para;</a></h1>
-<p>This page takes you from nothing to a working connection. Replace <code>https://api.example</code> with the Pewter API host you were given (the public host is not published yet) and <code>&lt;YOUR_API_KEY&gt;</code> with your key.</p>
+<p>This page takes you from nothing to a working connection. Buyers install the public <code>pewter</code> CLI and sign in against the staging API (Buyer tab). The seller agent is not published and still runs from source (Seller tab). Production API access remains invite-only.</p>
 <div class="admonition warning">
 <p class="admonition-title">Access</p>
-<p>Public sign-up is <strong>coming soon</strong>. Today accounts are created by invitation (a waitlist exists at <code>POST /api/v1/waitlist</code>).</p>
+<p>Public sign-up is <strong>coming soon</strong>. Today accounts are created by invitation (a waitlist exists at <code>POST /api/v1/waitlist</code>). The public CLI also requires an existing Pewter app account to approve a device login.</p>
 </div>
 <div class="tabbed-set tabbed-alternate" data-tabs="1:2"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Seller</label><label for="__tabbed_1_2">Buyer</label></div>
 <div class="tabbed-content">
 <div class="tabbed-block">
-<p><strong>1. Install the agent</strong> (Node.js 22.18 or newer). A published package is <em>coming soon</em>; today the agent runs from source:</p>
+<p><strong>1. Install the agent</strong> (Node.js 22.18 or newer). This is the seller agent, not the public <code>pewter</code> CLI in the Buyer tab. A published package is <em>coming soon</em>; today the agent runs from source:</p>
 <div class="highlight"><pre><span></span><code>node<span class="w"> </span>--version<span class="w">            </span><span class="c1"># must be &gt;= 22.18</span>
 node<span class="w"> </span>src/cli.ts<span class="w"> </span>version<span class="w">   </span><span class="c1"># from the pewter-node-agent source folder</span>
 </code></pre></div>
@@ -1689,21 +1689,31 @@ node<span class="w"> </span>src/cli.ts<span class="w"> </span>version<span class
 <div class="highlight"><pre><span></span><code>pewter-node-agent<span class="w"> </span>up<span class="w"> </span>--code<span class="w"> </span>XXXX-XXXX<span class="w"> </span>--api<span class="w"> </span>https://api.example/api/v1<span class="w"> </span>--name<span class="w"> </span>rack-01
 </code></pre></div>
 <p>The agent prints <code>Paired as NOD-… for listing LST-…</code> and starts heartbeating. Then ask Pewter to revalidate: <code>POST /api/v1/listings/{id}/revalidate</code>.</p>
+<p>Replace <code>https://api.example</code> with the API host you were given. The public production host is not published.</p>
 </div>
 <div class="tabbed-block">
-<p><strong>1. Get access.</strong> Sign in through the Pewter app (Apple, Google, or device-code sign-in) and create an agent key: <code>POST /api/v1/agents/{id}/keys</code>. The key is shown <strong>once</strong>.</p>
-<p><strong>2. First API call</strong> — who am I:</p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://api.example/api/v1/me<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer &lt;YOUR_API_KEY&gt;"</span>
+<p><strong>1. Install the public CLI</strong> (<code>pewter</code>, alias <code>pew</code>). v0.1.0 is read-only, talks only to the Pewter staging API, and refuses production.</p>
+<p>On macOS (the supported Mac install; darwin binaries in 0.1.0 are not notarized):</p>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>trust<span class="w"> </span>--formula<span class="w"> </span>omegacomputes/tap/pewter<span class="w">   </span><span class="c1"># Homebrew 7; required before the formula will load</span>
+brew<span class="w"> </span>install<span class="w"> </span>omegacomputes/tap/pewter
 </code></pre></div>
-<p><strong>3. Browse capacity:</strong></p>
-<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>https://api.example/api/v1/capacity<span class="w"> </span>-H<span class="w"> </span><span class="s2">"Authorization: Bearer &lt;YOUR_API_KEY&gt;"</span>
+<p>On Linux, and on macOS once OpenSSL 3 is first on <code>PATH</code>:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omegacompute.com/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
 </code></pre></div>
-<p><strong>4. Or connect an assistant over MCP</strong> — add this to your client (<a href="../mcp/connect/">more</a>):</p>
-<div class="highlight"><pre><span></span><code><span class="p">{</span><span class="w"> </span><span class="nt">"mcpServers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"pewter"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://api.example/api/v1/mcp"</span><span class="p">,</span>
-<span class="w">  </span><span class="nt">"headers"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">"Authorization"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Bearer &lt;YOUR_API_KEY&gt;"</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span><span class="w"> </span><span class="p">}</span>
+<p>The curl installer verifies an Ed25519 signature on <code>SHA256SUMS</code>, then the SHA-256 of the archive, and installs nothing if either check fails. The release public key is in the installer, the <a href="https://github.com/OmegaComputes/pewter">CLI README</a>, and <a href="https://omegacompute.com/cli/pewter-release.pub">https://omegacompute.com/cli/pewter-release.pub</a>. To verify without installing:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSLo<span class="w"> </span>install.sh<span class="w"> </span>https://omegacompute.com/install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>less<span class="w"> </span>install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sh<span class="w"> </span>install.sh<span class="w"> </span>--dry-run
 </code></pre></div>
-<p>Then ask: <em>"Use list_capacity to show H100 capacity in the US."</em></p>
-<p>A dedicated buyer CLI is described on <a href="../buyer/">Buyer CLI</a> (<em>coming soon</em>).</p>
+<p>Homebrew pins the same SHA-256 values, copied from that signed checksum list.</p>
+<p><strong>2. Sign in.</strong> Run <code>pewter login</code>, open the device URL it prints, enter the code, and approve the request in the Pewter app. That mints a permissioned <code>pck_</code> CLI key. The key is stored locally and is never printed. The CLI refuses <code>omk_</code> agent keys and session tokens.</p>
+<p><strong>3. Confirm:</strong></p>
+<div class="highlight"><pre><span></span><code>pewter<span class="w"> </span>--version<span class="w">    </span><span class="c1"># 0.1.0</span>
+pewter<span class="w"> </span>status<span class="w">       </span><span class="c1"># staging host, health ok</span>
+pewter<span class="w"> </span>instruments<span class="w">  </span><span class="c1"># public catalog, no key required</span>
+pewter<span class="w"> </span>whoami
+</code></pre></div>
+<p>The default API is <code>https://pewter-staging-production.up.railway.app/api/v1</code>. Any other host, including <code>https://api.omegacompute.com/api/v1</code>, is a hard error. Production is not enabled in v0.1.0. Available commands: <code>login</code>, <code>logout</code>, <code>whoami</code>, <code>status</code>, <code>instruments</code>, <code>listings</code>, <code>orders</code>, <code>balance</code>, <code>verify</code>, <code>version</code>, <code>completion</code>. <code>connect</code> is not part of this release.</p>
+<p><strong>4. API or MCP (optional).</strong> The public CLI uses <code>pck_</code> keys. MCP and <code>POST /api/v1/agents/{id}/keys</code> still use engine agent keys (<code>omk_</code>), which the CLI will not store. See <a href="../mcp/connect/">MCP</a>.</p>
+<p>More detail is on the <a href="../buyer/">Buyer CLI</a> page.</p>
 </div>
 </div>
 </div>

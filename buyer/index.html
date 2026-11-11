@@ -1257,6 +1257,24 @@
         
       
       
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buyer CLI
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
       <a href="./" class="md-nav__link md-nav__link--active">
         
   
@@ -1273,6 +1291,69 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the signature
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-in-and-the-staging-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sign in and the staging host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
       
     </li>
   
@@ -1640,6 +1721,58 @@
     
   
   
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#verify-the-signature" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Verify the signature
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sign-in-and-the-staging-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sign in and the staging host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
 </nav>
                   </div>
                 </div>
@@ -1656,11 +1789,44 @@
 
 
 <h1 id="buyer-cli">Buyer CLI<a class="headerlink" href="#buyer-cli" title="Permanent link">&para;</a></h1>
-<div class="admonition info">
-<p class="admonition-title">Coming soon</p>
-<p>A buyer command-line tool, <code>pewter</code>, is planned, including a Homebrew install. Its install instructions and command list are <strong>not yet available</strong> here.</p>
-</div>
-<p>Until then, buyers use the <a href="../api/">API</a> or the <a href="../mcp/">MCP server</a>. An in-development <code>pewter</code> command line already supports <code>pewter login</code> (device-code sign-in; the token is stored with owner-only permissions and never printed), <code>pewter connect</code>, <code>pewter status</code> and <code>pewter node down</code>; it is not released.</p>
+<p>The public Pewter CLI is <code>pewter</code> (alias <code>pew</code>), version <strong>0.1.0</strong>. It is read-only. It talks only to the Pewter staging API and refuses production, including <code>api.omegacompute.com</code>. Account calls use a permissioned <code>pck_</code> API key, minted only after someone who already has a Pewter account approves a device login in the Pewter app.</p>
+<p>HEIR PTE. LTD., trading as Omega Compute, publishes the signed release from <a href="https://github.com/OmegaComputes/pewter/releases/tag/v0.1.0">OmegaComputes/pewter</a>.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>On macOS (the supported Mac install; darwin binaries in 0.1.0 are not notarized):</p>
+<div class="highlight"><pre><span></span><code>brew<span class="w"> </span>trust<span class="w"> </span>--formula<span class="w"> </span>omegacomputes/tap/pewter<span class="w">   </span><span class="c1"># Homebrew 7; required before the formula will load</span>
+brew<span class="w"> </span>install<span class="w"> </span>omegacomputes/tap/pewter
+</code></pre></div>
+<p>On Linux, and on macOS once OpenSSL 3 is first on <code>PATH</code>:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSL<span class="w"> </span>https://omegacompute.com/install<span class="w"> </span><span class="p">|</span><span class="w"> </span>sh
+</code></pre></div>
+<p>Prefer to read the installer first?</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSLo<span class="w"> </span>install.sh<span class="w"> </span>https://omegacompute.com/install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>less<span class="w"> </span>install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sh<span class="w"> </span>install.sh
+</code></pre></div>
+<p>Both commands install <code>pewter</code> and the <code>pew</code> alias. Options on the curl installer include <code>--version X.Y.Z</code>, <code>--dir DIR</code>, <code>--dry-run</code> (verify only) and <code>--verbose</code>.</p>
+<h2 id="verify-the-signature">Verify the signature<a class="headerlink" href="#verify-the-signature" title="Permanent link">&para;</a></h2>
+<p>The curl installer downloads the archive from <code>https://omegacompute.com/cli/</code>, checks an Ed25519 signature on <code>SHA256SUMS</code> with a public key built into the installer, then checks the SHA-256 of the archive against that list. If the signature, the checksum, or the archive contents fail, nothing is installed.</p>
+<p>The same public key is in the <a href="https://github.com/OmegaComputes/pewter">CLI README</a> and at <a href="https://omegacompute.com/cli/pewter-release.pub">https://omegacompute.com/cli/pewter-release.pub</a>, so you can compare them. To verify without installing:</p>
+<div class="highlight"><pre><span></span><code>curl<span class="w"> </span>-fsSLo<span class="w"> </span>install.sh<span class="w"> </span>https://omegacompute.com/install<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>less<span class="w"> </span>install.sh<span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span>sh<span class="w"> </span>install.sh<span class="w"> </span>--dry-run
+</code></pre></div>
+<p>That should end with <code>Dry run: pewter v0.1.0 verified. Nothing was installed.</code></p>
+<p>Homebrew does not check the Ed25519 signature itself. The formula pins the SHA-256 of each archive, copied from <code>SHA256SUMS</code> only after that signature was verified.</p>
+<h2 id="sign-in-and-the-staging-host">Sign in and the staging host<a class="headerlink" href="#sign-in-and-the-staging-host" title="Permanent link">&para;</a></h2>
+<p>Public sign-up is not open. You need an existing Pewter app account.</p>
+<div class="highlight"><pre><span></span><code>pewter<span class="w"> </span>login
+</code></pre></div>
+<p>The command prints a device URL and a short code on stderr. Open the URL, enter the code, and approve the request in the Pewter app. That mints a <code>pck_</code> CLI credential: hashed on the server, scoped, revocable, with a 90-day life. The access token is stored locally and is never printed. The CLI accepts only <code>pck_</code> keys. It refuses <code>omk_</code> agent keys and session tokens, and it will not store them.</p>
+<div class="highlight"><pre><span></span><code>pewter<span class="w"> </span>--version
+pewter<span class="w"> </span>status
+pewter<span class="w"> </span>whoami
+</code></pre></div>
+<p><code>pewter --version</code> should report <code>0.1.0</code>. <code>pewter status</code> can run with no key and should show the staging host as healthy. <code>pewter instruments</code> is a public catalog and also needs no key. <code>pewter whoami</code> without a key exits 3.</p>
+<p>The default API is:</p>
+<p><code>https://pewter-staging-production.up.railway.app/api/v1</code></p>
+<p>That host is the staging orchestration. Account data there is not the live book. Loopback is allowed for tests. Any other host, including <code>https://api.omegacompute.com/api/v1</code>, is a hard error (exit 2). Production is not enabled in this release.</p>
+<p><code>pewter logout</code> revokes the credential on the server, then deletes the local copy.</p>
+<h2 id="commands">Commands<a class="headerlink" href="#commands" title="Permanent link">&para;</a></h2>
+<p>Available in v0.1.0: <code>login</code>, <code>logout</code>, <code>whoami</code>, <code>status</code>, <code>instruments</code>, <code>listings</code>, <code>orders</code>, <code>balance</code>, <code>verify</code>, <code>version</code>, <code>completion</code>.</p>
+<p><code>connect</code>, <code>pay</code>, and the seller agent are not part of this release. Buyers who need HTTP or an assistant integration can still use the <a href="../api/">API</a> or the <a href="../mcp/">MCP server</a>. Those paths use engine agent keys (<code>omk_</code>), which the public CLI will not store.</p>
 
 
 
