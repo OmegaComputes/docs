@@ -1,0 +1,2570 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Developer documentation for Pewter by Omega Compute.">
+      
+      
+      
+        <link rel="canonical" href="https://docs.omegacompute.com/sdk/python/">
+      
+      
+        <link rel="prev" href="../../buyer/">
+      
+      
+        <link rel="next" href="../../glossary/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
+    
+    
+      
+        <title>Python SDK (pewt) - Pewter Developer Docs</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.57a0d79d.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.fb2fffe2.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#python-sdk-pewt" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="Pewter Developer Docs" class="md-header__button md-logo" aria-label="Pewter Developer Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Pewter Developer Docs
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Python SDK (pewt)
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Dark mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Dark mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="blue-grey" data-md-color-accent="indigo"  aria-label="Light mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Light mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../quickstart/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Quickstart
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../guides/getting-connected/" class="md-tabs__link">
+          
+  
+  
+  Guides
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../api/" class="md-tabs__link">
+          
+  
+  
+  API
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../mcp/" class="md-tabs__link">
+          
+  
+  
+  MCP server
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../seller/" class="md-tabs__link">
+          
+  
+  
+  Seller agent
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../buyer/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Buyer CLI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Python SDK (pewt)
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../glossary/" class="md-tabs__link">
+          
+  
+  
+  Reference
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../project/" class="md-tabs__link">
+          
+  
+  
+  Project
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="Pewter Developer Docs" class="md-nav__button md-logo" aria-label="Pewter Developer Docs" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Pewter Developer Docs
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../quickstart/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quickstart
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Guides
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Guides
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/getting-connected/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting connected
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/seller-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seller flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/buyer-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buyer flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/paying/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Paying and payouts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../guides/verified/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verified badge
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    API
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    API
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview & authentication
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/agent-skill/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agent skill: payments and API keys
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/listings/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Listings
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/machines/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machines & metering
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/deals/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Deals, orders & fees
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/regions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Regions & sanctions (OFAC)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../api/endpoints/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Endpoint index
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    MCP server
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    MCP server
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mcp/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mcp/connect/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Connecting a client
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../mcp/tools/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tools
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Seller agent
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Seller agent
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seller/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview & install
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seller/commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seller/gpus/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    GPU detection
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../seller/proofs/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Proofs & the edge verifier
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../buyer/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Buyer CLI
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python SDK (pewt)
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python SDK (pewt)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth-and-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auth and host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncClient
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hours-and-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hours and identity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x402-on-base-sepolia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        x402 on Base Sepolia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#names-you-can-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Names you can import
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../glossary/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Glossary
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../faq/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    FAQ
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Project
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Open source plans
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/code-of-conduct/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Code of conduct
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/security/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../project/license/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    License recommendation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#install" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Install
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#auth-and-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Auth and host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Client
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#asyncclient" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AsyncClient
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#responses" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Responses
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#offers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Offers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instruments" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instruments
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orders" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orders
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deals
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#jobs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Jobs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hours-and-identity" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Hours and identity
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#errors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Errors
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#x402-on-base-sepolia" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        x402 on Base Sepolia
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cli" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CLI
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#names-you-can-import" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Names you can import
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="python-sdk-pewt">Python SDK (pewt)<a class="headerlink" href="#python-sdk-pewt" title="Permanent link">&para;</a></h1>
+<p><code>pewt</code> 0.1.1 is the buyer-side Python client and CLI for the Pewter orchestration API. It lists anonymous GPU capacity, requests an advisory quote, places and cancels orders, reads deals, and submits jobs on Test network deals. It can sign a Base Sepolia USDC payment for the paid capacity read. Version 0.1.1 does not log in, and it does not wrap seller, node, or escrow writes.</p>
+<p>This is not the public <a href="../../buyer/"><code>pewter</code></a> CLI (alias <code>pew</code>, v0.1.0). <code>pewter</code> is a separate binary. <code>pewt</code> is the Python package: a library plus the <code>pewt</code> command.</p>
+<p>The library speaks SI workloads in plain language: you name the GPU, the count, and the hours. A capacity row does not carry a supplier identity. Rows carry <code>seller_ref</code> (an anonymous alias) and <code>is_own</code>.</p>
+<p>Apache-2.0. HEIR PTE. LTD. trading as Omega Compute.</p>
+<h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
+<p>Python 3.9 or newer. The package classifiers list 3.9, 3.10, 3.11, 3.12, and 3.13.</p>
+<div class="highlight"><pre><span></span><code>pip<span class="w"> </span>install<span class="w"> </span>pewt
+</code></pre></div>
+<p>The console script is <code>pewt</code>. <code>python -m pewt</code> runs the same CLI: <code>__main__</code> calls <code>pewt.cli:main</code>.</p>
+<p><code>pewt.__version__</code> is <code>0.1.1</code>.</p>
+<h2 id="auth-and-host">Auth and host<a class="headerlink" href="#auth-and-host" title="Permanent link">&para;</a></h2>
+<div class="admonition warning">
+<p class="admonition-title">Point at staging</p>
+<p>The library default is production <code>https://api.omegacompute.com/api/v1</code> (<code>PRODUCTION_API_BASE</code>). Set <code>PEWTER_API_URL</code> or <code>base_url=</code> until you are ready. Every example on this page uses staging.</p>
+</div>
+<p>Staging is <code>STAGING_API_BASE</code>:</p>
+<p><code>https://pewter-staging-production.up.railway.app/api/v1</code></p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PEWTER_API_URL</span><span class="o">=</span>https://pewter-staging-production.up.railway.app/api/v1
+<span class="nb">export</span><span class="w"> </span>PEWTER_API_KEY
+</code></pre></div>
+<p><code>PEWTER_API_KEY</code> is sent as <code>Authorization: Bearer</code> on calls that require a key. Keys are <code>omk_</code> (agent), <code>pws_</code> (human session), or <code>pck_</code> (CLI). Pass <code>api_key=</code> to the constructor to override the environment variable. Do not put a key in source.</p>
+<p><code>base_url=</code> overrides <code>PEWTER_API_URL</code>. The CLI flag is <code>--base-url</code>. <code>timeout</code> on the constructor, and <code>--timeout</code> on the CLI, default to 30 seconds.</p>
+<p><code>GET /health</code> and <code>GET /instruments</code> do not send the key. The x402 helper does not send it either. It uses a separate Base Sepolia signing key, described below.</p>
+<h2 id="client">Client<a class="headerlink" href="#client" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pewt</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">STAGING_API_BASE</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">STAGING_API_BASE</span><span class="p">)</span>  <span class="c1"># PEWTER_API_KEY from the environment</span>
+<span class="n">client</span><span class="o">.</span><span class="n">health</span><span class="p">()</span>
+<span class="n">offers</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">offers</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="s2">"H100"</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s2">"US"</span><span class="p">)</span>
+<span class="n">quote</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">quote</span><span class="p">(</span>
+    <span class="n">side</span><span class="o">=</span><span class="s2">"bid"</span><span class="p">,</span>
+    <span class="n">instrument_id</span><span class="o">=</span><span class="s2">"gpu:H100:od:US:now"</span><span class="p">,</span>
+    <span class="n">price_usd_per_unit</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">gpus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">hours</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">hours</span><span class="o">.</span><span class="n">get</span><span class="p">()</span>
+<span class="n">jobs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">deal_id</span><span class="o">=</span><span class="s2">"DEAL-..."</span><span class="p">)</span>
+<span class="n">job</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span>
+    <span class="n">deal_id</span><span class="o">=</span><span class="s2">"DEAL-..."</span><span class="p">,</span>
+    <span class="n">runtime</span><span class="o">=</span><span class="s2">"container"</span><span class="p">,</span>
+    <span class="n">image</span><span class="o">=</span><span class="s2">"python:3.12-slim"</span><span class="p">,</span>
+    <span class="n">command</span><span class="o">=</span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"print(1)"</span><span class="p">],</span>
+    <span class="n">time_limit_s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">cancel</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p><code>price_usd_per_unit=2.0</code> is the limit the caller sends. It is not a published index.</p>
+<p><code>Client</code> is also a context manager. <code>with Client(base_url=STAGING_API_BASE) as client</code> calls <code>close()</code> on the way out. Closing twice is safe. A closed client raises <code>PewterError</code> with <code>code="closed"</code>.</p>
+<h2 id="asyncclient">AsyncClient<a class="headerlink" href="#asyncclient" title="Permanent link">&para;</a></h2>
+<p><code>AsyncClient</code> has the same methods as coroutines. <code>async with</code> calls <code>aclose()</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">import</span><span class="w"> </span><span class="nn">asyncio</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pewt</span><span class="w"> </span><span class="kn">import</span> <span class="n">AsyncClient</span><span class="p">,</span> <span class="n">STAGING_API_BASE</span>
+
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
+    <span class="k">async</span> <span class="k">with</span> <span class="n">AsyncClient</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">STAGING_API_BASE</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+        <span class="n">offers</span> <span class="o">=</span> <span class="k">await</span> <span class="n">client</span><span class="o">.</span><span class="n">offers</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="s2">"H100"</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s2">"US"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">offers</span><span class="p">))</span>
+
+<span class="n">asyncio</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+</code></pre></div>
+<p><code>await client.aclose()</code> closes without <code>async with</code>. Closing twice is safe.</p>
+<h2 id="responses">Responses<a class="headerlink" href="#responses" title="Permanent link">&para;</a></h2>
+<p>Successful engine calls arrive as <code>{ "data": ... }</code>. The client unwraps <code>data</code>. List routes return a bare array unless you pass <code>limit</code> and/or <code>cursor</code>, in which case the result is a <code>Page</code>: <code>items</code>, <code>next_cursor</code>, and <code>total</code>. <code>limit</code> is an integer from 1 to 200. <code>GET /health</code> is not wrapped; <code>client.health()</code> reads it directly.</p>
+<p>Writes other than the advisory quote send <code>Idempotency-Key</code> (1–80 characters). If you omit <code>idempotency_key=</code>, the client generates a UUID4. Send the same key again to replay the original result. <code>POST /orders/quote</code> does not send the header.</p>
+<h2 id="offers">Offers<a class="headerlink" href="#offers" title="Permanent link">&para;</a></h2>
+<p><code>client.offers.list</code> calls <code>GET /capacity</code>.</p>
+<p>Filters: <code>kind</code>, <code>gpu</code>, <code>region</code>, <code>max_price</code>, <code>verification_min</code> (<code>S0</code>, <code>S1</code>, <code>S2</code>, <code>S3</code>), plus <code>limit</code> and <code>cursor</code>. <code>max_price</code>, when set, must be a finite USD amount greater than 0 and at most 1000. Each row is an <code>Offer</code>: GPU model, VRAM, region, USD price per <code>gpu_hr</code>, assurance tier, listing id, <code>seller_ref</code>, and <code>is_own</code>. The manufacturer GPU name is the model, such as H100 or RTX 4090. The row does not include a supplier name, email, phone, or company.</p>
+<div class="highlight"><pre><span></span><code><span class="n">page</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">offers</span><span class="o">.</span><span class="n">list</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="s2">"H100"</span><span class="p">,</span> <span class="n">region</span><span class="o">=</span><span class="s2">"US"</span><span class="p">,</span> <span class="n">verification_min</span><span class="o">=</span><span class="s2">"S1"</span><span class="p">,</span> <span class="n">limit</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">page</span><span class="o">.</span><span class="n">items</span>
+<span class="n">page</span><span class="o">.</span><span class="n">next_cursor</span>
+<span class="n">page</span><span class="o">.</span><span class="n">total</span>
+</code></pre></div>
+<h2 id="instruments">Instruments<a class="headerlink" href="#instruments" title="Permanent link">&para;</a></h2>
+<p><code>client.instruments.list</code> calls <code>GET /instruments</code> and does not send a key.</p>
+<p>Filters: <code>gpu</code>, <code>term</code>, <code>region</code>, <code>limit</code>, <code>cursor</code>. Each row is an <code>Instrument</code>. Useful instrument ids look like <code>gpu:H100:od:US:now</code>.</p>
+<h2 id="orders">Orders<a class="headerlink" href="#orders" title="Permanent link">&para;</a></h2>
+<p>There is no separate job-quote route. A quote is <code>POST /orders/quote</code>. A job runs on a Test network deal after an order matches.</p>
+<p><code>orders.quote</code> and <code>orders.create</code> take the same order fields. <code>client_order_id</code> is optional on a quote and required on create. <code>idempotency_key</code> applies to create only.</p>
+<table>
+<thead>
+<tr>
+<th>Argument</th>
+<th>Required</th>
+<th>Values</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>side</code></td>
+<td>yes</td>
+<td><code>bid</code> or <code>ask</code></td>
+</tr>
+<tr>
+<td><code>instrument_id</code></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>price_usd_per_unit</code></td>
+<td>yes</td>
+<td>Caller limit. Finite, greater than 0, at most 1000. Not a published index.</td>
+</tr>
+<tr>
+<td><code>gpus</code></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>hours</code></td>
+<td>yes</td>
+<td></td>
+</tr>
+<tr>
+<td><code>client_order_id</code></td>
+<td>create only</td>
+<td>At most 80 characters</td>
+</tr>
+<tr>
+<td><code>firmness</code></td>
+<td>no</td>
+<td><code>firm</code> or <code>indicative</code></td>
+</tr>
+<tr>
+<td><code>min_fill_gpus</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td><code>all_or_none</code></td>
+<td>no</td>
+<td>Boolean</td>
+</tr>
+<tr>
+<td><code>time_in_force</code></td>
+<td>no</td>
+<td><code>GTC</code>, <code>GTD</code>, <code>IOC</code>, or <code>FOK</code></td>
+</tr>
+<tr>
+<td><code>expires_at</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td><code>contract_type</code></td>
+<td>no</td>
+<td><code>rental</code> or <code>purchase</code></td>
+</tr>
+<tr>
+<td><code>book</code></td>
+<td>no</td>
+<td><code>live</code> or <code>sandbox</code></td>
+</tr>
+<tr>
+<td><code>listing_id</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td><code>seller_verification_min</code></td>
+<td>no</td>
+<td><code>S0</code>–<code>S3</code></td>
+</tr>
+<tr>
+<td><code>residency</code></td>
+<td>no</td>
+<td>List of strings</td>
+</tr>
+<tr>
+<td><code>interconnect</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td><code>network_class</code></td>
+<td>no</td>
+<td>List of <code>datacenter</code>, <code>colo</code>, <code>residential</code></td>
+</tr>
+<tr>
+<td><code>country</code></td>
+<td>no</td>
+<td></td>
+</tr>
+<tr>
+<td><code>idempotency_key</code></td>
+<td>no</td>
+<td>Create only. 1–80 characters.</td>
+</tr>
+</tbody>
+</table>
+<p>The order argument is <code>seller_verification_min</code>. Offer search uses <code>verification_min</code> on <code>offers.list</code>. Those names are not interchangeable.</p>
+<div class="highlight"><pre><span></span><code><span class="n">created</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+    <span class="n">client_order_id</span><span class="o">=</span><span class="s2">"bid-100"</span><span class="p">,</span>
+    <span class="n">side</span><span class="o">=</span><span class="s2">"bid"</span><span class="p">,</span>
+    <span class="n">instrument_id</span><span class="o">=</span><span class="s2">"gpu:H100:od:US:now"</span><span class="p">,</span>
+    <span class="n">price_usd_per_unit</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+    <span class="n">gpus</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">hours</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">book</span><span class="o">=</span><span class="s2">"sandbox"</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="n">created</span><span class="o">.</span><span class="n">http_status</span>  <span class="c1"># 201, or 202 when the order is pending_approval</span>
+<span class="n">client</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">created</span><span class="o">.</span><span class="n">order</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">cancel</span><span class="p">(</span><span class="n">created</span><span class="o">.</span><span class="n">order</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
+<p><code>orders.create</code> returns the order, any deals, and <code>http_status</code>. <code>orders.get</code> returns the order and <code>deal_ids</code>. <code>orders.cancel</code> returns the order. Pass <code>idempotency_key=</code> to cancel when you want to choose the key.</p>
+<p><code>orders.list</code> filters are <code>status</code>, <code>side</code> (<code>bid</code> or <code>ask</code>), <code>instrument_id</code>, <code>limit</code>, and <code>cursor</code>.</p>
+<h2 id="deals">Deals<a class="headerlink" href="#deals" title="Permanent link">&para;</a></h2>
+<p><code>client.deals.list</code> takes <code>limit</code> and <code>cursor</code>. Omit both for the array of <code>Deal</code> rows. <code>client.deals.get(deal_id)</code> returns one <code>Deal</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="n">client</span><span class="o">.</span><span class="n">deals</span><span class="o">.</span><span class="n">list</span><span class="p">()</span>
+<span class="n">client</span><span class="o">.</span><span class="n">deals</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"DEAL-..."</span><span class="p">)</span>
+</code></pre></div>
+<h2 id="jobs">Jobs<a class="headerlink" href="#jobs" title="Permanent link">&para;</a></h2>
+<p>Jobs are buyer-submitted and run on Test network deals only. The server enforces that.</p>
+<p><code>client.jobs.list(deal_id)</code> returns the jobs for that deal: <code>jobs</code>, <code>can_submit</code>, <code>stop_reason</code>, <code>gpu_s_used</code>, <code>gpu_s_billable</code>, and <code>gpu_s_included</code>. It does not take <code>limit</code> or <code>cursor</code>.</p>
+<p><code>client.jobs.submit(deal_id, *, runtime, command, time_limit_s, ...)</code> returns a <code>Job</code>. Runtimes: <code>container</code>, <code>mlx</code>, <code>pytorch-mps</code>, <code>llama.cpp</code>.</p>
+<p>A container job needs an image such as <code>python:3.12-slim</code>. Native runtimes take no image. The first command token is <code>python</code> for <code>mlx</code> and <code>pytorch-mps</code>, and <code>llama-cli</code>, <code>llama-completion</code>, or <code>llama-bench</code> for <code>llama.cpp</code>. <code>command</code> is a list of 1 to 64 strings.</p>
+<p><code>env</code> names are <code>UPPER_SNAKE</code> and must not start with <code>PEWTER_</code>. At most 32 variables. <code>files</code> are objects with <code>name</code> and <code>content</code>. Names are plain names (no paths), at most 8. Each content string is at most 64 KB, and the files together are at most 128 KB. <code>time_limit_s</code> is 10–86400. <code>gpus</code>, when set, is 1–64. <code>idempotency_key</code> is optional.</p>
+<div class="highlight"><pre><span></span><code><span class="n">job</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span>
+    <span class="n">deal_id</span><span class="o">=</span><span class="s2">"DEAL-..."</span><span class="p">,</span>
+    <span class="n">runtime</span><span class="o">=</span><span class="s2">"mlx"</span><span class="p">,</span>
+    <span class="n">command</span><span class="o">=</span><span class="p">[</span><span class="s2">"python"</span><span class="p">,</span> <span class="s2">"-c"</span><span class="p">,</span> <span class="s2">"print(1)"</span><span class="p">],</span>
+    <span class="n">time_limit_s</span><span class="o">=</span><span class="mi">60</span><span class="p">,</span>
+    <span class="n">env</span><span class="o">=</span><span class="p">{</span><span class="s2">"MODEL_NAME"</span><span class="p">:</span> <span class="s2">"demo"</span><span class="p">},</span>
+<span class="p">)</span>
+<span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+</code></pre></div>
+<p><code>client.jobs.cancel(job_id)</code> returns the <code>Job</code>. A running cancel stops at the machine's next heartbeat. Pass <code>idempotency_key=</code> to choose the key.</p>
+<div class="highlight"><pre><span></span><code><span class="n">logs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">logs</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">logs</span><span class="o">.</span><span class="n">done</span><span class="p">:</span>
+    <span class="n">logs</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">logs</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">after</span><span class="o">=</span><span class="n">logs</span><span class="o">.</span><span class="n">next</span><span class="p">)</span>
+<span class="n">names</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">artifacts</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+<span class="n">one</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">jobs</span><span class="o">.</span><span class="n">artifacts</span><span class="p">(</span><span class="n">job</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s2">"out.txt"</span><span class="p">)</span>
+</code></pre></div>
+<p><code>jobs.logs</code> takes optional <code>after</code> (integer ≥ 0) and <code>limit</code> (1–1000). Poll with the returned <code>next</code> value until <code>done</code> is true. <code>jobs.artifacts</code> lists artifacts, or returns one artifact when <code>name</code> is set. A blank name is rejected.</p>
+<h2 id="hours-and-identity">Hours and identity<a class="headerlink" href="#hours-and-identity" title="Permanent link">&para;</a></h2>
+<p><code>client.hours.get()</code> calls <code>GET /hours</code>. <code>unit</code> is <code>gpu_hours</code>. The summary has active, negotiating, closed, and all-time counts. <code>by_role</code> has a <code>buyer</code> bucket and a <code>seller</code> bucket (<code>by_role["buyer"]</code>, <code>by_role["seller"]</code>).</p>
+<p><code>client.me.get()</code> calls <code>GET /me</code>.</p>
+<p><code>client.health()</code> calls <code>GET /health</code>. It is unauthenticated liveness. The body is not a <code>data</code> envelope. A <code>Health</code> value has <code>status</code>, <code>api_version</code>, <code>time</code>, and <code>uptime_s</code>.</p>
+<h2 id="errors">Errors<a class="headerlink" href="#errors" title="Permanent link">&para;</a></h2>
+<p>HTTP errors are not swallowed. Failures raise <code>PewterError</code> with <code>status</code>, <code>code</code>, <code>message</code>, <code>request_id</code>, and <code>details</code>. Timeouts raise <code>PewterError</code> with <code>code="timeout"</code>. Connection failures use <code>code="transport_error"</code>. Redirects are refused (<code>code="redirect"</code>) and are not followed. A closed client raises <code>code="closed"</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pewt</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">PewterError</span><span class="p">,</span> <span class="n">STAGING_API_BASE</span>
+
+<span class="k">with</span> <span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">STAGING_API_BASE</span><span class="p">)</span> <span class="k">as</span> <span class="n">client</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">client</span><span class="o">.</span><span class="n">orders</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">"ORD-..."</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">PewterError</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">exc</span><span class="o">.</span><span class="n">status</span><span class="p">,</span> <span class="n">exc</span><span class="o">.</span><span class="n">code</span><span class="p">,</span> <span class="n">exc</span><span class="o">.</span><span class="n">message</span><span class="p">,</span> <span class="n">exc</span><span class="o">.</span><span class="n">request_id</span><span class="p">,</span> <span class="n">exc</span><span class="o">.</span><span class="n">details</span><span class="p">)</span>
+</code></pre></div>
+<p><code>X402Error</code> is a <code>PewterError</code> for a refused payment requirement or a lingering HTTP 402. <code>X402ConfigError</code> is an <code>X402Error</code> raised when the Base Sepolia signing key is missing or is not a 32-byte hex key. <code>except PewterError</code> catches both.</p>
+<h2 id="x402-on-base-sepolia">x402 on Base Sepolia<a class="headerlink" href="#x402-on-base-sepolia" title="Permanent link">&para;</a></h2>
+<p><code>client.x402.capacity(...)</code> calls <code>GET /api/v1/x402/capacity</code> (same filters and rows as <code>offers.list</code>). An unpaid request is HTTP 402. The helper checks the requirement, signs an EIP-3009 <code>transferWithAuthorization</code>, and retries once with <code>PAYMENT-SIGNATURE</code>.</p>
+<p>This is Test network only. The helper does not send <code>PEWTER_API_KEY</code>.</p>
+<ul>
+<li>Chain: Base Sepolia, CAIP <code>eip155:84532</code>, chain id <code>84532</code>.</li>
+<li>Asset: Circle USDC <code>0x036CbD53842c5426634e7929541eC2318f3dCF7e</code> (name <code>USDC</code>, version <code>2</code>, 6 decimals).</li>
+<li>The helper refuses Base mainnet (chain id <code>8453</code>), mainnet USDC <code>0x833589fCD6eBd6E08f4c7C32D4f71b54bdA02913</code>, and the Pewter staging test token <code>0xd4822Fa535d1784F880969f0E7Ef5c3A209CdF20</code> (no EIP-3009).</li>
+<li>It pays the amount in the 402, and refuses anything above 1 USDC.</li>
+<li>The signing key comes from <code>PEWTER_X402_TEST_PRIVATE_KEY</code> or <code>x402_private_key=</code>. There is no default wallet. The key is never logged. The server settles; this client does not call the facilitator.</li>
+</ul>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pewt</span><span class="w"> </span><span class="kn">import</span> <span class="n">Client</span><span class="p">,</span> <span class="n">STAGING_API_BASE</span>
+
+<span class="n">client</span> <span class="o">=</span> <span class="n">Client</span><span class="p">(</span><span class="n">base_url</span><span class="o">=</span><span class="n">STAGING_API_BASE</span><span class="p">)</span>
+<span class="n">rows</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">x402</span><span class="o">.</span><span class="n">capacity</span><span class="p">(</span><span class="n">gpu</span><span class="o">=</span><span class="s2">"H100"</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">client</span><span class="o">.</span><span class="n">x402</span><span class="o">.</span><span class="n">call_tool</span><span class="p">(</span><span class="s2">"list_capacity"</span><span class="p">,</span> <span class="p">{</span><span class="s2">"gpu"</span><span class="p">:</span> <span class="s2">"H100"</span><span class="p">})</span>
+<span class="n">client</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</code></pre></div>
+<p><code>call_tool</code> posts one JSON-RPC <code>tools/call</code> and returns that object. It does not unwrap a <code>data</code> envelope. Names are limited to <code>list_capacity</code>, <code>resolve_requirements</code>, <code>get_quotes</code>, <code>get_market_summary</code>, and <code>get_price_history</code>. Any other name is refused locally, including writes and account tools. An optional <code>request_id=</code> defaults to 1. Offer search for buyers stays on <code>offers.list</code>.</p>
+<h2 id="cli">CLI<a class="headerlink" href="#cli" title="Permanent link">&para;</a></h2>
+<p>Global flags: <code>--base-url</code> and <code>--timeout</code> (seconds, default 30). When <code>--base-url</code> and <code>PEWTER_API_URL</code> are both unset, the CLI uses the production library default. Point it at staging.</p>
+<div class="highlight"><pre><span></span><code><span class="nb">export</span><span class="w"> </span><span class="nv">PEWTER_API_URL</span><span class="o">=</span>https://pewter-staging-production.up.railway.app/api/v1
+<span class="nb">export</span><span class="w"> </span>PEWTER_API_KEY
+
+pewt<span class="w"> </span>--base-url<span class="w"> </span><span class="s2">"</span><span class="nv">$PEWTER_API_URL</span><span class="s2">"</span><span class="w"> </span>status
+pewt<span class="w"> </span>offers<span class="w"> </span>--gpu<span class="w"> </span>H100<span class="w"> </span>--region<span class="w"> </span>US<span class="w"> </span>--verification-min<span class="w"> </span>S1
+pewt<span class="w"> </span>instruments<span class="w"> </span>--gpu<span class="w"> </span>H100<span class="w"> </span>--limit<span class="w"> </span><span class="m">5</span>
+pewt<span class="w"> </span>quote<span class="w"> </span>--side<span class="w"> </span>bid<span class="w"> </span>--instrument-id<span class="w"> </span>gpu:H100:od:US:now<span class="w"> </span>--price<span class="w"> </span><span class="m">2</span><span class="w"> </span>--gpus<span class="w"> </span><span class="m">1</span><span class="w"> </span>--hours<span class="w"> </span><span class="m">1</span>
+pewt<span class="w"> </span>orders<span class="w"> </span>create<span class="w"> </span>--client-order-id<span class="w"> </span>bid-100<span class="w"> </span>--side<span class="w"> </span>bid<span class="w"> </span>--instrument-id<span class="w"> </span>gpu:H100:od:US:now<span class="w"> </span>--price<span class="w"> </span><span class="m">2</span><span class="w"> </span>--gpus<span class="w"> </span><span class="m">1</span><span class="w"> </span>--hours<span class="w"> </span><span class="m">1</span><span class="w"> </span>--book<span class="w"> </span>sandbox
+pewt<span class="w"> </span>orders<span class="w"> </span>list<span class="w"> </span>--side<span class="w"> </span>bid
+pewt<span class="w"> </span>deals<span class="w"> </span>list
+pewt<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>--deal<span class="w"> </span>DEAL-...
+pewt<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>submit<span class="w"> </span>--deal<span class="w"> </span>DEAL-...<span class="w"> </span>--runtime<span class="w"> </span>container<span class="w"> </span>--image<span class="w"> </span>python:3.12-slim<span class="w"> </span><span class="se">\</span>
+<span class="w">  </span>--command<span class="w"> </span>python<span class="w"> </span>--command<span class="o">=</span>-c<span class="w"> </span>--command<span class="w"> </span><span class="s1">'print(1)'</span><span class="w"> </span>--time-limit<span class="w"> </span><span class="m">60</span>
+pewt<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>logs<span class="w"> </span>JOB-...
+pewt<span class="w"> </span><span class="nb">jobs</span><span class="w"> </span>cancel<span class="w"> </span>JOB-...
+pewt<span class="w"> </span>hours
+pewt<span class="w"> </span>whoami
+</code></pre></div>
+<p><code>--price</code> is the caller limit (<code>price_usd_per_unit</code>), not a published index. The <code>2</code> above is that limit.</p>
+<p><code>pewt offers</code> prints the manufacturer GPU name, count, VRAM, country or region, USD price per GPU-hour, verification tier, listing id, <code>seller_ref</code>, and <code>is_own</code>. It does not print a supplier name, email, phone, or company.</p>
+<p><code>pewt status</code> prints the configured host and health. <code>pewt whoami</code> is <code>GET /me</code>. <code>pewt hours</code> prints <code>unit</code> (<code>gpu_hours</code>) and the active, negotiating, closed, and all-time figures, including buyer and seller totals. <code>pewt instruments</code> needs no API key.</p>
+<p>Commands and flags:</p>
+<table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Flags</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>offers</code></td>
+<td><code>--kind</code>, <code>--gpu</code>, <code>--region</code>, <code>--max-price</code>, <code>--verification-min</code> (<code>S0</code>–<code>S3</code>), <code>--limit</code>, <code>--cursor</code></td>
+</tr>
+<tr>
+<td><code>instruments</code></td>
+<td><code>--gpu</code>, <code>--term</code>, <code>--region</code>, <code>--limit</code>, <code>--cursor</code></td>
+</tr>
+<tr>
+<td><code>status</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>whoami</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>hours</code></td>
+<td>none</td>
+</tr>
+<tr>
+<td><code>quote</code></td>
+<td>Order flags below. <code>--client-order-id</code> is optional. No idempotency flag.</td>
+</tr>
+<tr>
+<td><code>orders list</code></td>
+<td><code>--status</code>, <code>--side</code> (<code>bid</code> or <code>ask</code>), <code>--instrument-id</code>, <code>--limit</code>, <code>--cursor</code></td>
+</tr>
+<tr>
+<td><code>orders get</code></td>
+<td><code>order_id</code> (id or <code>client_order_id</code>)</td>
+</tr>
+<tr>
+<td><code>orders cancel</code></td>
+<td><code>order_id</code>, <code>--idempotency-key</code></td>
+</tr>
+<tr>
+<td><code>orders create</code></td>
+<td><code>--client-order-id</code> (required) and the order flags below, plus <code>--idempotency-key</code></td>
+</tr>
+<tr>
+<td><code>deals list</code></td>
+<td><code>--limit</code>, <code>--cursor</code></td>
+</tr>
+<tr>
+<td><code>deals get</code></td>
+<td><code>deal_id</code></td>
+</tr>
+<tr>
+<td><code>jobs</code></td>
+<td><code>--deal</code> lists jobs when no subcommand is given</td>
+</tr>
+<tr>
+<td><code>jobs list</code></td>
+<td><code>--deal</code> (required)</td>
+</tr>
+<tr>
+<td><code>jobs get</code></td>
+<td><code>job_id</code></td>
+</tr>
+<tr>
+<td><code>jobs submit</code></td>
+<td><code>--deal</code>, <code>--runtime</code> (<code>container</code>, <code>mlx</code>, <code>pytorch-mps</code>, <code>llama.cpp</code>), repeated <code>--command</code>, <code>--time-limit</code>, optional <code>--image</code>, <code>--gpus</code>, repeated <code>--env NAME=VALUE</code>, repeated <code>--file name=local-path</code>, <code>--idempotency-key</code></td>
+</tr>
+<tr>
+<td><code>jobs cancel</code></td>
+<td><code>job_id</code>, <code>--idempotency-key</code></td>
+</tr>
+<tr>
+<td><code>jobs logs</code></td>
+<td><code>job_id</code>, <code>--after</code>, <code>--limit</code></td>
+</tr>
+<tr>
+<td><code>jobs artifacts</code></td>
+<td><code>job_id</code>, <code>--name</code></td>
+</tr>
+</tbody>
+</table>
+<p><code>pewt orders</code> and <code>pewt deals</code> need a subcommand. <code>pewt jobs</code> needs <code>--deal</code> or a subcommand (<code>list</code>, <code>get</code>, <code>submit</code>, <code>cancel</code>, <code>logs</code>, <code>artifacts</code>).</p>
+<p>Order flags on <code>quote</code> and <code>orders create</code>: <code>--side</code>, <code>--instrument-id</code>, <code>--price</code>, <code>--gpus</code>, <code>--hours</code>, <code>--firmness</code> (<code>firm</code> or <code>indicative</code>), <code>--min-fill-gpus</code>, <code>--all-or-none</code>, <code>--time-in-force</code> (<code>GTC</code>, <code>GTD</code>, <code>IOC</code>, <code>FOK</code>), <code>--expires-at</code>, <code>--contract-type</code> (<code>rental</code> or <code>purchase</code>), <code>--book</code> (<code>live</code> or <code>sandbox</code>), <code>--listing-id</code>, <code>--verification-min</code> (<code>S0</code>–<code>S3</code>), repeated <code>--residency</code>, <code>--interconnect</code>, repeated <code>--network-class</code> (<code>datacenter</code>, <code>colo</code>, or <code>residential</code>), <code>--country</code>. <code>--verification-min</code> on these commands is <code>seller_verification_min</code>. On <code>offers</code> the same flag is the capacity filter <code>verification_min</code>.</p>
+<p><code>--all-or-none</code> is a switch. Omit it to leave the field unset. Repeat <code>--command</code> once per token. A token that starts with a dash is <code>--command=-c</code>. <code>--image</code> is required for <code>container</code> and forbidden for native runtimes. <code>--file</code> reads a local UTF-8 file. The name on the left of <code>=</code> is a plain file name, with no directory.</p>
+<p><code>--limit</code> and <code>--cursor</code> opt into a page. Omit both for the legacy array. Commands that page are <code>offers</code>, <code>instruments</code>, <code>orders list</code>, and <code>deals list</code>.</p>
+<h2 id="names-you-can-import">Names you can import<a class="headerlink" href="#names-you-can-import" title="Permanent link">&para;</a></h2>
+<p><code>AsyncClient</code>, <code>Client</code>, <code>Deal</code>, <code>Health</code>, <code>HoursSummary</code>, <code>Instrument</code>, <code>Job</code>, <code>Offer</code>, <code>Order</code>, <code>PRODUCTION_API_BASE</code>, <code>Page</code>, <code>PewterError</code>, <code>Quote</code>, <code>STAGING_API_BASE</code>, <code>X402ConfigError</code>, <code>X402Error</code>, and <code>__version__</code>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../buyer/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Buyer CLI">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Buyer CLI
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Glossary
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+    <div class="md-copyright__highlight">
+      Omega Compute.
+    </div>
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.a5f9d56c.min.js"></script>
+      
+    
+  </body>
+</html>

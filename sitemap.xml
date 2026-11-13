@@ -2,122 +2,126 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://docs.omegacompute.com/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/faq/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/glossary/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/quickstart/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/support/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/agent-skill/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/deals/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/endpoints/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/listings/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/machines/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/api/regions/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/buyer/</loc>
-         <lastmod>2026-11-11</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/guides/buyer-flow/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/guides/getting-connected/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/guides/paying/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/guides/seller-flow/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/guides/verified/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/mcp/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/mcp/connect/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/mcp/tools/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/project/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/project/code-of-conduct/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/project/contributing/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/project/license/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/project/security/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
+    </url>
+    <url>
+         <loc>https://docs.omegacompute.com/sdk/python/</loc>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/seller/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/seller/commands/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/seller/gpus/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
     <url>
          <loc>https://docs.omegacompute.com/seller/proofs/</loc>
-         <lastmod>2026-11-07</lastmod>
+         <lastmod>2026-11-13</lastmod>
     </url>
 </urlset>

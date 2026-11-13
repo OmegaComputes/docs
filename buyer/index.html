@@ -16,14 +16,14 @@
         <link rel="prev" href="../seller/proofs/">
       
       
-        <link rel="next" href="../glossary/">
+        <link rel="next" href="../sdk/python/">
       
       
         
       
       
       <link rel="icon" href="../assets/images/favicon.png">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.8.1">
     
     
       
@@ -31,10 +31,10 @@
       
     
     
-      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      <link rel="stylesheet" href="../assets/stylesheets/main.57a0d79d.min.css">
       
         
-        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../assets/stylesheets/palette.fb2fffe2.min.css">
       
       
 
@@ -340,6 +340,25 @@
     
   
   Buyer CLI
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../sdk/python/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Python SDK (pewt)
 
       </a>
     </li>
@@ -1365,6 +1384,33 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../sdk/python/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Python SDK (pewt)
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
     
     
     
@@ -1379,10 +1425,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
         
           
-          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
             
   
   
@@ -1400,8 +1446,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_8">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1494,10 +1540,10 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" >
         
           
-          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
             
   
   
@@ -1515,8 +1561,8 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_9">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1791,6 +1837,7 @@
 <h1 id="buyer-cli">Buyer CLI<a class="headerlink" href="#buyer-cli" title="Permanent link">&para;</a></h1>
 <p>The public Pewter CLI is <code>pewter</code> (alias <code>pew</code>), version <strong>0.1.0</strong>. It is read-only. It talks only to the Pewter staging API and refuses production, including <code>api.omegacompute.com</code>. Account calls use a permissioned <code>pck_</code> API key, minted only after someone who already has a Pewter account approves a device login in the Pewter app.</p>
 <p>HEIR PTE. LTD., trading as Omega Compute, publishes the signed release from <a href="https://github.com/OmegaComputes/pewter/releases/tag/v0.1.0">OmegaComputes/pewter</a>.</p>
+<p><code>pewter</code> is not <a href="../sdk/python/"><code>pewt</code></a>. The Python package <code>pewt</code> 0.1.1 is a library and a <code>pewt</code> command for the orchestration API. It does not log in. This page is only the <code>pewter</code> / <code>pew</code> CLI.</p>
 <h2 id="install">Install<a class="headerlink" href="#install" title="Permanent link">&para;</a></h2>
 <p>On macOS (the supported Mac install; darwin binaries in 0.1.0 are not notarized):</p>
 <div class="highlight"><pre><span></span><code>brew<span class="w"> </span>trust<span class="w"> </span>--formula<span class="w"> </span>omegacomputes/tap/pewter<span class="w">   </span><span class="c1"># Homebrew 7; required before the formula will load</span>
@@ -1879,13 +1926,13 @@ pewter<span class="w"> </span>whoami
         
         
           
-          <a href="../glossary/" class="md-footer__link md-footer__link--next" aria-label="Next: Glossary">
+          <a href="../sdk/python/" class="md-footer__link md-footer__link--next" aria-label="Next: Python SDK (pewt)">
             <div class="md-footer__title">
               <span class="md-footer__direction">
                 Next
               </span>
               <div class="md-ellipsis">
-                Glossary
+                Python SDK (pewt)
               </div>
             </div>
             <div class="md-footer__button md-icon">
@@ -1926,10 +1973,10 @@ pewter<span class="w"> </span>whoami
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "toc.follow", "search.suggest", "search.highlight", "content.code.copy"], "search": "../assets/javascripts/workers/search.a7633da7.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      <script src="../assets/javascripts/bundle.a5f9d56c.min.js"></script>
       
     
   </body>
