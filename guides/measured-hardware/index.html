@@ -1872,7 +1872,7 @@
 <p>Pewter does not publish where the cards were hosted, who supplied them, or what they cost.</p>
 <h2 id="how-we-measured">How we measured<a class="headerlink" href="#how-we-measured" title="Permanent link">&para;</a></h2>
 <ul>
-<li><strong>FP16 measured (TFLOPS):</strong> a dense FP16 matrix multiply with FP32 accumulate, run through PyTorch (2.4.1 to 2.8.0) on CUDA 12.4 to 12.8. Matrix size is 8192×8192, or 16384×16384 when free memory is at least 4 GiB, chosen from free memory. The run warms up for at least 1 second, then measures for at least 2 seconds, 5 trials, median reported. Script: pewter-node-agent a74e629ecceb9237c55b9bc93d4dd195e0fe5a10.</li>
+<li><strong>FP16 measured (TFLOPS):</strong> a dense FP16 matrix multiply with FP32 accumulate, run through PyTorch (2.4.0 to 2.8.0) on CUDA 12.4, CUDA 12.8. Matrix size is 8192×8192, or 16384×16384 when free memory is at least 4 GiB, chosen from free memory. The run warms up for at least 1 second, then measures for at least 2 seconds, 5 trials, median reported. Script: pewter-node-agent a74e629ecceb9237c55b9bc93d4dd195e0fe5a10.</li>
 <li><strong>Vendor spec (dense FP16):</strong> the manufacturer's published dense FP16 Tensor (or Matrix) figure with FP32 accumulate, without structured sparsity, linked per row. Where a manufacturer publishes only a sparse figure, we show half of it and say so in that row. Where no dense FP16 figure is published, or we have not yet read it from the manufacturer's own document, the spec and % columns are left blank.</li>
 <li><strong>% of spec:</strong> FP16 measured ÷ vendor spec. Results above or below 100% are normal. Clocks, power limits, cooling, drivers and the host system all move the figure.</li>
 <li><strong>S1 check:</strong> the card passed Pewter's entry-level check on the test network. The node agent reported the GPU model and memory, signed its measurement, and measured at least 15% of the catalogue FP16 figure. S1 is an onboarding check, not a performance rating or certification. S2 and S3 are not offered yet.</li>
@@ -1936,10 +1936,10 @@
 <tr>
 <td>NVIDIA B200</td>
 <td>180 GB</td>
-<td>1296.7</td>
+<td>1300.1</td>
 <td><a href="https://www.nvidia.com/en-us/data-center/hgx/">2250</a>, spec shown is half the published sparse figure, per GPU of 8</td>
-<td>57.6%</td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>57.8%</td>
+<td>S1 passed</td>
 <td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
@@ -1960,7 +1960,7 @@
 <td><a href="https://www.nvidia.com/content/dam/en-zz/Solutions/geforce/ampere/pdf/NVIDIA-ampere-GA102-GPU-Architecture-Whitepaper-V1.pdf">40.6</a></td>
 <td>109.9%</td>
 <td>S1 passed</td>
-<td></td>
+<td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
 <tr>
@@ -1986,10 +1986,10 @@
 <tr>
 <td>NVIDIA GeForce RTX 3090</td>
 <td>24 GB</td>
-<td>76.1</td>
+<td>74.7</td>
 <td><a href="https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf">71.2</a></td>
-<td>106.9%</td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>104.9%</td>
+<td>S1 passed</td>
 <td>CUDA 12.4</td>
 <td>Test network</td>
 </tr>
@@ -2040,7 +2040,7 @@
 <td><a href="https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf">112.6</a></td>
 <td>92.2%</td>
 <td>S1 passed</td>
-<td></td>
+<td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
 <tr>
@@ -2050,16 +2050,16 @@
 <td><a href="https://images.nvidia.com/aem-dam/Solutions/geforce/blackwell/nvidia-rtx-blackwell-gpu-architecture.pdf">209.5</a></td>
 <td>106.8%</td>
 <td>S1 passed</td>
-<td></td>
+<td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
 <tr>
 <td>NVIDIA H100 SXM</td>
 <td>80 GB</td>
-<td>670.6</td>
+<td>672.6</td>
 <td><a href="https://www.nvidia.com/en-us/data-center/h100/">989</a>, half of published sparse figure</td>
-<td>67.8%</td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>68.0%</td>
+<td>S1 passed</td>
 <td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
@@ -2076,20 +2076,20 @@
 <tr>
 <td>NVIDIA H100 PCIe</td>
 <td>80 GB</td>
-<td></td>
-<td></td>
-<td></td>
-<td>Not available at run time</td>
-<td></td>
+<td>365.8</td>
+<td><a href="https://www.nvidia.com/en-us/data-center/h100/">756</a>, half of published sparse figure</td>
+<td>48.4% — Below expected, single sample</td>
+<td>S1 passed</td>
+<td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
 <tr>
 <td>NVIDIA H200 SXM</td>
 <td>141 GB</td>
-<td>648.3</td>
+<td>646.6</td>
 <td><a href="https://www.nvidia.com/en-us/data-center/h200/">989.5</a>, half of published sparse figure</td>
-<td>65.5%</td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>65.3%</td>
+<td>S1 passed</td>
 <td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
@@ -2266,20 +2266,20 @@
 <tr>
 <td>NVIDIA RTX PRO 6000 Max-Q</td>
 <td>96 GB</td>
-<td>168.3</td>
+<td>171.6</td>
 <td><a href="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/pdf/NVIDIA-RTX-Blackwell-PRO-GPU-Architecture-v1_1.pdf">438.9</a></td>
-<td>38.3% — Below expected, single sample</td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>39.1% — Below expected, single sample</td>
+<td>S1 passed</td>
 <td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
 <tr>
 <td>NVIDIA RTX PRO 6000 Server Edition</td>
 <td>96 GB</td>
-<td>301.7</td>
+<td>304</td>
 <td></td>
 <td></td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>S1 passed</td>
 <td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
@@ -2306,10 +2306,10 @@
 <tr>
 <td>NVIDIA RTX PRO 6000</td>
 <td>96 GB</td>
-<td>267</td>
+<td>273.7</td>
 <td><a href="https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/quadro-product-literature/pdf/NVIDIA-RTX-Blackwell-PRO-GPU-Architecture-v1_1.pdf">503.8</a></td>
-<td>53.0%</td>
-<td>S1 not passed: measured on the card without a signed check</td>
+<td>54.3%</td>
+<td>S1 passed</td>
 <td>CUDA 12.8</td>
 <td>Test network</td>
 </tr>
@@ -2320,7 +2320,7 @@
 <td><a href="https://images.nvidia.com/content/technologies/volta/pdf/volta-v100-datasheet-update-us-1165301-r5.pdf">112</a></td>
 <td>77.9%</td>
 <td>S1 passed</td>
-<td></td>
+<td>CUDA 12.4</td>
 <td>Test network</td>
 </tr>
 <tr>
@@ -2330,7 +2330,7 @@
 <td><a href="https://images.nvidia.com/content/technologies/volta/pdf/volta-v100-datasheet-update-us-1165301-r5.pdf">125</a></td>
 <td>74.4%</td>
 <td>S1 passed</td>
-<td></td>
+<td>CUDA 12.4</td>
 <td>Test network</td>
 </tr>
 </tbody>
